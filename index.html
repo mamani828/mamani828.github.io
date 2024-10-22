@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mani Amani">
+    <meta name="author" content="Mani Amani">
+    <title>Mani Amani</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px;
+            background-color: #182B49; /* UCSD blue */
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .about, .projects, .research {
+            margin-bottom: 30px;
+        }
+
+        .about p {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        .profile-photo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-photo img {
+    border-radius: 0; /* Removes the circular effect */
+    width: 35%; /* Keeps the original width */
+    height: 35%; /* Keeps the original height */
+    max-width: 100%; /* Ensures the image is responsive but within its container */
+}
+
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #4CAF50;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Mani Amani</h1>
+        <p>PhD Student at UC San Diego, Researcher in Robotics</p>
+    </header>
+
+    <div class="container">
+        <div class="profile-photo">
+            <img src="IMG_2927.jpg" alt="MyPhoto">
+        </div>
+
+        <section class="about">
+            <h2>About Me</h2>
+            <p>
+               I am a PhD student at the Department of Electrical Engineering at UC San Diego working with Prof. Reza Akhavian and Prof. Nikolay Atanasov.
+               My main research interests area is in construction robotics, mainly focusing on safe navigation and learning from demonstrations for autonomous construction equipment.
+            </p>
+        </section>
+
+        <section class="research">
+            <h2>Research</h2>
+            <p>
+                My research interests include construction robot automomy. Specifically, I work on safe navigation and manipulator behavior. I have published papers in [Key Conferences or Journals] on topics such as [Example Topics].
+            </p>
+            <p>
+                <a href="your-cv.pdf">Download My CV</a>
+            </p>
+        </section>
+
+        <section class="projects">
+            <h2>Recent Projects</h2>
+            <ul>
+                <li>
+                    <a href="https://github.com/mamani828/RL-REBA">Ergonomic Optimization for pHRI with Reinforcement Learning</a>
+                    <p>This project focuses on using reinforcement learning (RL) to optimize human-robot interactions (pHRI) in a way that minimizes ergonomic risks as assessed by the REBA (Rapid Entire Body Assessment) system. By applying RL algorithms, the robot can learn to adjust its movements and interactions to reduce strain and improve safety for the human worker. This method circumvents the discrete nature of REBA and any other industry standard ergonomic scores which make gradient-based methods unfeasible</p>
+                    <img src="Score4.png" alt="Diagram showing ergonomic optimization with RL" style="width:400px;height:auto;">
+                </li>
+            </ul>
+        </section>
+
+        <div class="links">
+            <a href="mailto:mamani@ucsd.edu">Email</a> |
+            <a href="https://github.com/mamani828" target="_blank">GitHub</a> |
+            <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a> |
+            <a href="https://scholar.google.com/citations?user=your-scholar-id" target="_blank">Google Scholar</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Mani Amani.</p>
+    </footer>
+
+</body>
+
+</html>
