@@ -1,141 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mani Amani">
-    <meta name="author" content="Mani Amani">
-    <title>Mani Amani</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-
-        header {
-            text-align: center;
-            padding: 50px;
-            background-color: #182B49; /* UCSD blue */
-            color: white;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .about, .projects, .research {
-            margin-bottom: 30px;
-        }
-
-        .about p {
-            font-size: 1.2em;
-            line-height: 1.5;
-        }
-
-        .profile-photo {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .profile-photo img {
-    border-radius: 0; /* Removes the circular effect */
-    width: 35%; /* Keeps the original width */
-    height: 35%; /* Keeps the original height */
-    max-width: 100%; /* Ensures the image is responsive but within its container */
-}
-
-        .links {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .links a {
-            text-decoration: none;
-            color: #4CAF50;
-            margin: 0 15px;
-            font-size: 1.2em;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mani Amani is a Ph.D. student researching construction robotics, safe navigation, and human-robot interaction.">
+  <meta name="author" content="Mani Amani">
+  <title>Mani Amani</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --background: #f8fafc;
+      --surface: #fff;
+      --text: #1e293b;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --link: #1e40af;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--muted); text-decoration: underline; }
+    a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      z-index: 20;
+      padding: .65rem 1rem;
+      background: var(--surface);
+    }
+    .skip-link:focus { top: .5rem; }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, .88);
+      backdrop-filter: blur(12px);
+    }
+    .site-nav {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      max-width: 1152px;
+      margin: auto;
+      padding: 1rem 1.5rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+    .site-nav a { color: var(--muted); }
+    .site-nav a:hover { color: #2563eb; }
+    .page-layout {
+      display: flex;
+      align-items: flex-start;
+      gap: 3rem;
+      max-width: 1152px;
+      min-height: calc(100vh - 145px);
+      margin: auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+    .profile {
+      flex: 0 0 18rem;
+      text-align: center;
+      font-size: 1.125rem;
+    }
+    .profile-photo {
+      display: block;
+      width: min(15rem, 100%);
+      height: auto;
+      margin: 0 auto 1rem;
+      border-radius: .25rem;
+      box-shadow: 0 1px 4px rgba(15, 23, 42, .18);
+    }
+    .profile h1 {
+      margin: 0 0 .35rem;
+      font-size: 1.5rem;
+      letter-spacing: -.025em;
+    }
+    .profile p { margin: .3rem 0; line-height: 1.4; }
+    .profile-divider {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .contact-label { font-weight: 600; }
+    .contact-email { overflow-wrap: anywhere; }
+    .profile-links a { display: block; margin: .4rem 0; }
+    .content { flex: 1; min-width: 0; font-size: 1.125rem; }
+    .content section { margin-bottom: 2.5rem; scroll-margin-top: 6rem; }
+    .content h2 {
+      margin: 0 0 1rem;
+      font-size: 1.875rem;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+    .content p { margin: 0 0 1rem; line-height: 1.65; }
+    .publication-list { margin: 0; padding-left: 1.4rem; }
+    .publication-list li { padding-left: .2rem; margin-bottom: .9rem; line-height: 1.55; }
+    .publication-list cite { font-style: normal; font-weight: 600; }
+    .project-image {
+      display: block;
+      width: min(100%, 400px);
+      height: auto;
+      margin-top: 1.25rem;
+      border-radius: .25rem;
+    }
+    .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
+    .site-footer p {
+      max-width: 1152px;
+      margin: auto;
+      padding: 1.5rem;
+      color: #64748b;
+      font-size: .875rem;
+    }
+    @media (max-width: 760px) {
+      .site-nav { justify-content: center; gap: .75rem 1.25rem; font-size: 1rem; }
+      .page-layout { display: block; padding-top: 2rem; }
+      .profile { max-width: 24rem; margin: 0 auto 3rem; }
+      .content { font-size: 1rem; }
+      .content h2 { font-size: 1.7rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
 </head>
+<body id="home">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+    </nav>
+  </header>
 
-<body>
+  <main class="page-layout" id="main-content">
+    <aside class="profile" aria-label="Profile and contact information">
+      <img class="profile-photo" src="IMG_2927.jpg" alt="Mani Amani" width="1022" height="1406">
+      <h1>Mani Amani</h1>
+      <p>Ph.D. Student</p>
+      <p><a href="https://www.ece.ucsd.edu/">ECE</a> &middot; <a href="https://ucsd.edu/">UC San Diego</a></p>
+      <div class="profile-divider">
+        <span class="contact-label">Email</span> &nbsp;|&nbsp;
+        <a class="contact-email" href="mailto:mamani@ucsd.edu">mamani@ucsd.edu</a>
+      </div>
+      <div class="profile-divider profile-links">
+        <a href="https://scholar.google.com/citations?user=hwsQ-zoAAAAJ">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/maniamani/">LinkedIn</a>
+        <a href="https://github.com/mamani828">GitHub</a>
+        <a href="ManiAmani_Resume.pdf">Curriculum Vitae</a>
+      </div>
+    </aside>
 
-    <header>
-        <h1>Mani Amani</h1>
-        <p>PhD Student at UC San Diego, Researcher in Robotics</p>
-    </header>
-
-    <div class="container">
-        <div class="profile-photo">
-            <img src="IMG_2927.jpg" alt="MyPhoto">
-        </div>
-
-        <section class="about">
-            <h2>About Me</h2>
-            <p>
-               I am a PhD student at the Department of Electrical Engineering at UC San Diego working with Prof. Reza Akhavian and Prof. Nikolay Atanasov.
-               My main research interests area is in construction robotics, mainly focusing on safe navigation and learning from demonstrations for autonomous construction equipment.
-            </p>
-        </section>
-
-        <section class="research">
-            <h2>Research</h2>
-            <p>
-                My research interests include construction robot automomy. Specifically, I work on safe navigation and manipulator behavior. I have published papers in Automation in Construction and ASCE on topics such as Construction robotics and ergonomic optimization.
-            </p>
-            <p>
-                <a href="ManiAmani_Resume.pdf">Download My CV</a>
-            </p>
-        </section>
-
-        <section class="projects">
-            <h2>Recent Projects</h2>
-            <ul>
-                <li>
-                    <a href="https://github.com/mamani828/RL-REBA">Ergonomic Optimization for pHRI with Reinforcement Learning</a>
-                    <p>This project focuses on using reinforcement learning (RL) to optimize human-robot interactions (pHRI) in a way that minimizes ergonomic risks as assessed by the REBA (Rapid Entire Body Assessment) system. By applying RL algorithms, the robot can learn to adjust its movements and interactions to reduce strain and improve safety for the human worker. This method circumvents the discrete nature of REBA and any other industry standard ergonomic scores which make gradient-based methods unfeasible</p>
-                    <img src="Score4.png" alt="Diagram showing ergonomic optimization with RL" style="width:400px;height:auto;">
-                </li>
-            </ul>
-        </section>
-
-        <div class="links">
-            <a href="mailto:mamani@ucsd.edu">Email</a> |
-            <a href="https://github.com/mamani828" target="_blank">GitHub</a> |
-            <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a> |
-            <a href="https://scholar.google.com/citations?user=hwsQ-zoAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>
-        </div>
+    <div class="content">
+      <section id="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About</h2>
+        <p>I am a Ph.D. student in engineering sciences at UC San Diego and San Diego State University, advised by Prof. Reza Akhavian and Prof. Nikolay Atanasov. My work focuses on construction robotics and human-robot interaction.</p>
+        <p>I received my B.S. in Cognitive Science with a specialization in Machine Learning and Neural Computation from UC San Diego.</p>
+      </section>
+      <section id="research" aria-labelledby="research-heading">
+        <h2 id="research-heading">Research Interests</h2>
+        <p>I study how autonomous robots can work safely and effectively in construction environments. My research includes safe navigation, learning from demonstrations, robot perception, and ergonomic optimization for human-robot collaboration.</p>
+      </section>
+      <section id="publications" aria-labelledby="publications-heading">
+        <h2 id="publications-heading">Publications</h2>
+        <ul class="publication-list">
+          <li><strong>M. Amani</strong> and R. Akhavian (2024). <cite>“Intelligent ergonomic optimization in bimanual worker-robot interaction: A Reinforcement Learning approach.”</cite> <em>Automation in Construction</em>, 168, 105741. <a href="https://doi.org/10.1016/j.autcon.2024.105741">doi:10.1016/j.autcon.2024.105741</a></li>
+          <li><strong>M. Amani</strong> and R. Akhavian (2025). <cite>“Safe and trustworthy robot pathfinding with BIM, MHA*, and NLP.”</cite> <em>Construction Robotics</em>, 9, article 18. <a href="https://doi.org/10.1007/s41693-025-00161-1">doi:10.1007/s41693-025-00161-1</a></li>
+          <li><strong>M. Amani</strong>, B. Beheshti, and R. Akhavian (2026). <cite>“Bootstrapped LLM Semantics for Context-Aware Path Planning.”</cite> <em>ASCE International Conference on Computing in Civil Engineering (i3CE)</em>. <a href="https://arxiv.org/abs/2511.11967">Preprint</a></li>
+          <li><strong>M. Amani</strong> and R. Akhavian (accepted, 2026). <cite>“Digital Twin-Guided Robot Path Planning: A Beta-Bernoulli Fusion with Large Language Model as a Sensor.”</cite> <em>Journal of Computing in Civil Engineering</em>. <a href="https://arxiv.org/abs/2509.20709">Preprint</a></li>
+          <li>A. Palacios, V. In, and <strong>M. Amani</strong> (2024). <cite>“Disorder-Induced Dynamics in Complex Networks.”</cite> <em>International Journal of Bifurcation and Chaos</em>, 34(5), 2430010. <a href="https://doi.org/10.1142/S0218127424300106">doi:10.1142/S0218127424300106</a></li>
+          <li>R. Ashe, <strong>M. Amani</strong>, C. Sommerfield, and R. Akhavian (2025). <cite>“A Customized Quadruped Control and Sensor Integration Framework with a Construction Worker Activity Recognition Module.”</cite> <em>Computing in Civil Engineering 2025</em>, 708–712. <a href="https://doi.org/10.1061/9780784486443.077">doi:10.1061/9780784486443.077</a></li>
+          <li><strong>M. Amani</strong> and R. Akhavian (2024). <cite>“Adaptive Robot Perception in Construction Environments Using 4D BIM.”</cite> <em>Computing in Civil Engineering 2024</em>, 679–687. <a href="https://doi.org/10.1061/9780784486115.072">doi:10.1061/9780784486115.072</a></li>
+          <li>Z. Dai, T. Fan, <strong>M. Amani</strong>, J. Seo, K. M. B. Lee, H. Oh, and N. Atanasov (2026). <cite>“Kernel-SDF: An Open-Source Library for Real-Time Signed Distance Function Estimation using Kernel Regression.”</cite> <em>IEEE Robotics and Automation Letters</em>. <a href="https://doi.org/10.1109/LRA.2026.3719228">doi:10.1109/LRA.2026.3719228</a></li>
+          <li>R. Akhavian, <strong>M. Amani</strong>, J. Mootz, B. Beheshti, and R. Ashe (2026). <cite>“Semantic-Gravity Iterative Closest Point and AI-assisted navigation for Robot-Ready Construction Digital Twins.”</cite> <em>Automation in Construction</em>, 190, 107134. <a href="https://doi.org/10.1016/j.autcon.2026.107134">doi:10.1016/j.autcon.2026.107134</a></li>
+        </ul>
+      </section>
+      <section id="projects" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Recent Projects</h2>
+        <p><a href="https://github.com/mamani828/RL-REBA"><strong>Ergonomic Optimization for Human-Robot Interaction with Reinforcement Learning</strong></a></p>
+        <p>This project uses reinforcement learning to reduce ergonomic risk during human-robot interaction. The approach optimizes robot behavior using Rapid Entire Body Assessment (REBA) scores, whose discrete values make direct gradient-based optimization difficult.</p>
+        <img class="project-image" src="Score4.png" alt="Ergonomic optimization results for human-robot interaction" width="501" height="490" loading="lazy">
+      </section>
     </div>
+  </main>
 
-    <footer>
-        <p>&copy; 2024 Mani Amani.</p>
-    </footer>
-
+  <footer class="site-footer"><p>&copy; 2026 Mani Amani. All rights reserved.</p></footer>
 </body>
-
 </html>
