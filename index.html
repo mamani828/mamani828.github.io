@@ -103,6 +103,9 @@
       letter-spacing: -.025em;
     }
     .content p { margin: 0 0 1rem; line-height: 1.65; }
+    .experience-item { margin-bottom: 1.5rem; }
+    .experience-item h3 { margin: 0 0 .2rem; font-size: 1.15rem; line-height: 1.4; }
+    .experience-item .meta { color: var(--muted); font-size: 1rem; }
     .publication-list { margin: 0; padding-left: 1.4rem; }
     .publication-list li { padding-left: .2rem; margin-bottom: .9rem; line-height: 1.55; }
     .publication-list cite { font-style: normal; font-weight: 600; }
@@ -139,6 +142,7 @@
     <nav class="site-nav" aria-label="Main navigation">
       <a href="#home">Home</a>
       <a href="#research">Research</a>
+      <a href="#experience">Experience</a>
       <a href="#publications">Publications</a>
       <a href="#projects">Projects</a>
     </nav>
@@ -146,7 +150,7 @@
 
   <main class="page-layout" id="main-content">
     <aside class="profile" aria-label="Profile and contact information">
-      <img class="profile-photo" src="IMG_2927.jpg" alt="Mani Amani" width="1022" height="1406">
+      <img class="profile-photo" src="ManiAmani.jpg" alt="Mani Amani" width="871" height="1379">
       <h1>Mani Amani</h1>
       <p>Ph.D. Student</p>
       <p><a href="https://www.ece.ucsd.edu/">ECE</a> &middot; <a href="https://ucsd.edu/">UC San Diego</a></p>
@@ -158,19 +162,42 @@
         <a href="https://scholar.google.com/citations?user=hwsQ-zoAAAAJ">Google Scholar</a>
         <a href="https://www.linkedin.com/in/maniamani/">LinkedIn</a>
         <a href="https://github.com/mamani828">GitHub</a>
-        <a href="ManiAmani_Resume.pdf">Curriculum Vitae</a>
+        <a href="ManiAmani_Resume.pdf?updated=2026-10-02">Curriculum Vitae (PDF)</a>
       </div>
     </aside>
 
     <div class="content">
       <section id="about" aria-labelledby="about-heading">
         <h2 id="about-heading">About</h2>
-        <p>I am a Ph.D. student in engineering sciences at UC San Diego and San Diego State University, advised by Prof. Reza Akhavian and Prof. Nikolay Atanasov. My work focuses on construction robotics and human-robot interaction.</p>
-        <p>I received my B.S. in Cognitive Science with a specialization in Machine Learning and Neural Computation from UC San Diego.</p>
+        <p>I am a Ph.D. student in Electrical and Computer Engineering, specializing in machine learning and data science, at UC San Diego and San Diego State University. I am advised by Prof. Reza Akhavian and Prof. Nikolay Atanasov.</p>
+        <p>My work spans robot autonomy, construction robotics, semantic mapping, and safe human-robot collaboration. I received my B.S. in Cognitive Science, specializing in Machine Learning and Neural Computation, from UC San Diego.</p>
       </section>
       <section id="research" aria-labelledby="research-heading">
         <h2 id="research-heading">Research Interests</h2>
-        <p>I study how autonomous robots can work safely and effectively in construction environments. My research includes safe navigation, learning from demonstrations, robot perception, and ergonomic optimization for human-robot collaboration.</p>
+        <p>I develop planning and perception methods that help robots operate safely in complex environments. My recent work includes language-guided path planning with building information models, semantic distance fields, structure from motion, and ergonomic optimization for human-robot interaction.</p>
+      </section>
+      <section id="experience" aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Experience</h2>
+        <div class="experience-item">
+          <h3>Autonomy Engineer Intern · Michael Baker International</h3>
+          <p class="meta">Pittsburgh, PA · Jun. 2026–Sep. 2026</p>
+          <p>Extended VidMap’s structure-from-motion pipeline with multi-camera bundle adjustment, IMU-based gravity alignment, and support for fisheye and equirectangular cameras. Increased reconstruction acceptance rates from 40% to 85% on large buildings, including schools and stadiums. Also developed open-vocabulary asset extraction and dynamic Gaussian splatting methods.</p>
+        </div>
+        <div class="experience-item">
+          <h3>AI Engineer Intern · AstreaX</h3>
+          <p class="meta">Phoenix, AZ · Jun. 2025–Sep. 2025</p>
+          <p>Built a vision pipeline for low-light maritime hazard detection, including synthetic data generation and a custom deformable transformer model that achieved an 87.8% F1 score on held-out tests.</p>
+        </div>
+        <div class="experience-item">
+          <h3>Research Assistant · SDSU &amp; UC San Diego</h3>
+          <p class="meta">San Diego, CA · Jun. 2023–Present</p>
+          <p>Develop robot planning, semantic mapping, and safety methods using language models, building information models, and ROS 2. I also mentor undergraduate researchers working on robot autonomy.</p>
+        </div>
+        <div class="experience-item">
+          <h3>Software Engineering Intern · San Diego Zoo Wildlife Alliance</h3>
+          <p class="meta">San Diego, CA · Oct. 2024–Present</p>
+          <p>Develop computer vision and sensor-data pipelines for wildlife monitoring, including detection of burrowing owls, bats, and potential predators.</p>
+        </div>
       </section>
       <section id="publications" aria-labelledby="publications-heading">
         <h2 id="publications-heading">Publications</h2>
@@ -188,9 +215,10 @@
       </section>
       <section id="projects" aria-labelledby="projects-heading">
         <h2 id="projects-heading">Recent Projects</h2>
-        <p><a href="https://github.com/mamani828/RL-REBA"><strong>Ergonomic Optimization for Human-Robot Interaction with Reinforcement Learning</strong></a></p>
-        <p>This project uses reinforcement learning to reduce ergonomic risk during human-robot interaction. The approach optimizes robot behavior using Rapid Entire Body Assessment (REBA) scores, whose discrete values make direct gradient-based optimization difficult.</p>
+        <p><a href="https://github.com/mamani828/GO1_GPT_UNITY"><strong>Quadruped Control for Worker Activity Recognition</strong></a> — A modular mission-planning system with a BIM-based 3D environment and a self-labeling method for activity data.</p>
+        <p><a href="https://github.com/mamani828/RL-REBA"><strong>Ergonomic Optimization for Human-Robot Interaction</strong></a> — A Q-learning method that optimizes bimanual handovers using Rapid Entire Body Assessment (REBA) scores.</p>
         <img class="project-image" src="Score4.png" alt="Ergonomic optimization results for human-robot interaction" width="501" height="490" loading="lazy">
+        <p><a href="https://mamani828.github.io/Annotated_MOLE/"><strong>MOLE Annotated</strong></a> — A beginner-friendly tutorial on numerical PDE solvers and mimetic discretization.</p>
       </section>
     </div>
   </main>
