@@ -106,9 +106,66 @@
     .experience-item { margin-bottom: 1.5rem; }
     .experience-item h3 { margin: 0 0 .2rem; font-size: 1.15rem; line-height: 1.4; }
     .experience-item .meta { color: var(--muted); font-size: 1rem; }
-    .publication-list { margin: 0; padding-left: 1.4rem; }
-    .publication-list li { padding-left: .2rem; margin-bottom: .9rem; line-height: 1.55; }
-    .publication-list cite { font-style: normal; font-weight: 600; }
+    .content h3.pub-group {
+      margin: 2rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.3rem;
+    }
+    .pub-year {
+      margin: 1.5rem 0 .75rem;
+      color: var(--muted);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+    .pub {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .pub-thumb {
+      flex: 0 0 11rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 7.5rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: .3rem;
+      background: var(--surface);
+    }
+    .pub-thumb img { width: 100%; height: 100%; object-fit: contain; }
+    .pub-thumb.text-tile {
+      padding: .75rem;
+      background: linear-gradient(135deg, #eff6ff, #f1f5f9);
+      color: var(--link);
+      font-size: .95rem;
+      font-weight: 700;
+      line-height: 1.3;
+      text-align: center;
+    }
+    .pub-body { flex: 1; min-width: 0; font-size: 1rem; line-height: 1.5; }
+    .pub-title { display: block; margin-bottom: .2rem; font-weight: 600; font-size: 1.05rem; }
+    .pub-venue { color: var(--muted); }
+    .pub-venue em { font-style: italic; }
+    .pub-tag {
+      display: inline-block;
+      margin-left: .35rem;
+      padding: .05rem .45rem;
+      border-radius: 999px;
+      background: #fef3c7;
+      color: #92400e;
+      font-size: .8rem;
+      font-weight: 600;
+      vertical-align: middle;
+    }
+    .pub-links { margin-top: .3rem; }
+    .pub-links a { margin-right: .8rem; font-weight: 600; font-size: .95rem; }
+    .honors-list { margin: 0; padding-left: 1.4rem; }
+    .honors-list li { margin-bottom: .5rem; line-height: 1.55; }
+    .honors-list .year { color: var(--muted); }
     .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
     .site-footer p {
       max-width: 1152px;
@@ -123,6 +180,8 @@
       .profile { max-width: 24rem; margin: 0 auto 3rem; }
       .content { font-size: 1rem; }
       .content h2 { font-size: 1.7rem; }
+      .pub { flex-direction: column; gap: .6rem; }
+      .pub-thumb { flex-basis: auto; width: 100%; height: 11rem; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -137,6 +196,7 @@
       <a href="#research">Research</a>
       <a href="#experience">Experience</a>
       <a href="#publications">Publications</a>
+      <a href="#honors">Honors</a>
     </nav>
   </header>
 
@@ -145,7 +205,7 @@
       <img class="profile-photo" src="ManiAmani.jpg" alt="Mani Amani" width="871" height="1379">
       <h1>Mani Amani</h1>
       <p>Ph.D. Student</p>
-      <p><a href="https://www.ece.ucsd.edu/">ECE</a> &middot; <a href="https://ucsd.edu/">UC San Diego</a></p>
+      <p><a href="https://www.ece.ucsd.edu/">ECE</a> &middot; <a href="https://ucsd.edu/">UC San Diego</a> &amp; <a href="https://www.sdsu.edu/">SDSU</a></p>
       <div class="profile-divider">
         <span class="contact-label">Email</span> &nbsp;|&nbsp;
         <a class="contact-email" href="mailto:mamani@ucsd.edu">mamani@ucsd.edu</a>
@@ -161,8 +221,8 @@
     <div class="content">
       <section id="about" aria-labelledby="about-heading">
         <h2 id="about-heading">About</h2>
-        <p>I am a Ph.D. student in Electrical and Computer Engineering, at San Diego State University and UC San Diego. I am very fortunate to be advised by Prof. Reza Akhavian and Prof. Nikolay Atanasov.</p>
-        <p>My research focuses on robot planning under constraints that extend beyond collision checking, especially high-dimensional and human-facing requirements. I received my B.S. in Cognitive Science, specializing in Machine Learning and Neural Computation, from UC San Diego.</p>
+        <p>I am a Ph.D. student in Electrical and Computer Engineering in the joint doctoral program between <a href="https://www.sdsu.edu/">San Diego State University</a> and <a href="https://ucsd.edu/">UC San Diego</a>. I am very fortunate to be advised by <a href="https://dice.sdsu.edu/">Prof. Reza Akhavian</a> (<a href="https://dice.sdsu.edu/">DiCE Lab</a>, SDSU) and <a href="https://natanaso.github.io/">Prof. Nikolay Atanasov</a> (<a href="https://existentialrobotics.org/">Existential Robotics Lab</a>, UCSD).</p>
+        <p>My research focuses on robot planning under constraints that extend beyond collision checking, especially high-dimensional and human-facing requirements. I am an <a href="https://www.arcsfoundation.org/">ARCS Foundation</a> Scholar and a recipient of the SDSU University Graduate Fellowship. I received my B.S. in <a href="https://cogsci.ucsd.edu/">Cognitive Science</a>, specializing in Machine Learning and Neural Computation, from UC San Diego.</p>
       </section>
       <section id="research" aria-labelledby="research-heading">
         <h2 id="research-heading">Research Interests</h2>
@@ -193,16 +253,112 @@
       </section>
       <section id="publications" aria-labelledby="publications-heading">
         <h2 id="publications-heading">Publications</h2>
-        <ul class="publication-list">
-          <li><strong>M. Amani</strong> and R. Akhavian (2024). <cite>“Intelligent ergonomic optimization in bimanual worker-robot interaction: A Reinforcement Learning approach.”</cite> <em>Automation in Construction</em>, 168, 105741. <a href="https://doi.org/10.1016/j.autcon.2024.105741">doi:10.1016/j.autcon.2024.105741</a></li>
-          <li><strong>M. Amani</strong> and R. Akhavian (2025). <cite>“Safe and trustworthy robot pathfinding with BIM, MHA*, and NLP.”</cite> <em>Construction Robotics</em>, 9, article 18. <a href="https://doi.org/10.1007/s41693-025-00161-1">doi:10.1007/s41693-025-00161-1</a></li>
-          <li><strong>M. Amani</strong>, B. Beheshti, and R. Akhavian (2026). <cite>“Bootstrapped LLM Semantics for Context-Aware Path Planning.”</cite> <em>ASCE International Conference on Computing in Civil Engineering (i3CE)</em>. <a href="https://arxiv.org/abs/2511.11967">Preprint</a></li>
-          <li><strong>M. Amani</strong> and R. Akhavian (accepted, 2026). <cite>“Digital Twin-Guided Robot Path Planning: A Beta-Bernoulli Fusion with Large Language Model as a Sensor.”</cite> <em>Journal of Computing in Civil Engineering</em>. <a href="https://arxiv.org/abs/2509.20709">Preprint</a></li>
-          <li>A. Palacios, V. In, and <strong>M. Amani</strong> (2024). <cite>“Disorder-Induced Dynamics in Complex Networks.”</cite> <em>International Journal of Bifurcation and Chaos</em>, 34(5), 2430010. <a href="https://doi.org/10.1142/S0218127424300106">doi:10.1142/S0218127424300106</a></li>
-          <li>R. Ashe, <strong>M. Amani</strong>, C. Sommerfield, and R. Akhavian (2025). <cite>“A Customized Quadruped Control and Sensor Integration Framework with a Construction Worker Activity Recognition Module.”</cite> <em>Computing in Civil Engineering 2025</em>, 708–712. <a href="https://doi.org/10.1061/9780784486443.077">doi:10.1061/9780784486443.077</a></li>
-          <li><strong>M. Amani</strong> and R. Akhavian (2024). <cite>“Adaptive Robot Perception in Construction Environments Using 4D BIM.”</cite> <em>Computing in Civil Engineering 2024</em>, 679–687. <a href="https://doi.org/10.1061/9780784486115.072">doi:10.1061/9780784486115.072</a></li>
-          <li>Z. Dai, T. Fan, <strong>M. Amani</strong>, J. Seo, K. M. B. Lee, H. Oh, and N. Atanasov (2026). <cite>“Kernel-SDF: An Open-Source Library for Real-Time Signed Distance Function Estimation using Kernel Regression.”</cite> <em>IEEE Robotics and Automation Letters</em>. <a href="https://doi.org/10.1109/LRA.2026.3719228">doi:10.1109/LRA.2026.3719228</a></li>
-          <li>R. Akhavian, <strong>M. Amani</strong>, J. Mootz, B. Beheshti, and R. Ashe (2026). <cite>“Semantic-Gravity Iterative Closest Point and AI-assisted navigation for Robot-Ready Construction Digital Twins.”</cite> <em>Automation in Construction</em>, 190, 107134. <a href="https://doi.org/10.1016/j.autcon.2026.107134">doi:10.1016/j.autcon.2026.107134</a></li>
+        <h3 class="pub-group">In Progress</h3>
+          <article class="pub">
+            <a class="pub-thumb" href="https://existentialrobotics.org/bubblecbf" tabindex="-1" aria-hidden="true"><img src="images/pubs/bubblecbf.jpg" alt="" loading="lazy"></a>
+            <div class="pub-body">
+              <span class="pub-title">BubbleCBF: Constructive Safety for Second-Order Systems and Application to Autonomous Robot Navigation in Unknown Environments</span>
+              <strong>M. Amani</strong>*, M. Alyaseen*, Z. Dai, K. M. B. Lee, N. Atanasov, and J. Cortés<br>
+              <span class="pub-venue"><em>Under review</em>, 2026 &nbsp;(*equal contribution)</span>
+              <div class="pub-links"><a href="https://existentialrobotics.org/bubblecbf">Project page</a></div>
+            </div>
+          </article>
+        <h3 class="pub-group">Published</h3>
+        <p class="pub-year">2026</p>
+          <article class="pub">
+            <a class="pub-thumb" href="https://arxiv.org/abs/2509.20709" tabindex="-1" aria-hidden="true"><img src="images/pubs/digital-twin-llm.jpg" alt="" loading="lazy"></a>
+            <div class="pub-body">
+              <span class="pub-title">Digital Twin-Guided Robot Path Planning: A Beta-Bernoulli Fusion with Large Language Model as a Sensor</span>
+              <strong>M. Amani</strong> and R. Akhavian<br>
+              <span class="pub-venue"><em>Journal of Computing in Civil Engineering</em>, 2026</span><span class="pub-tag">To appear</span>
+              <div class="pub-links"><a href="https://arxiv.org/abs/2509.20709">arXiv</a></div>
+            </div>
+          </article>
+          <article class="pub">
+            <a class="pub-thumb" href="https://doi.org/10.1109/LRA.2026.3719228" tabindex="-1" aria-hidden="true"><img src="images/pubs/kernel-sdf.jpg" alt="" loading="lazy"></a>
+            <div class="pub-body">
+              <span class="pub-title">Kernel-SDF: An Open-Source Library for Real-Time Signed Distance Function Estimation using Kernel Regression</span>
+              Z. Dai, T. Fan, <strong>M. Amani</strong>, J. Seo, K. M. B. Lee, H. Oh, and N. Atanasov<br>
+              <span class="pub-venue"><em>IEEE Robotics and Automation Letters (RA-L)</em>, 2026</span>
+              <div class="pub-links"><a href="https://doi.org/10.1109/LRA.2026.3719228">Paper</a> <a href="https://arxiv.org/abs/2603.29227">arXiv</a> <a href="https://github.com/ExistentialRobotics/kernel_sdf">Code</a></div>
+            </div>
+          </article>
+          <article class="pub">
+            <div class="pub-thumb text-tile" aria-hidden="true">Automation in Construction<br>2026</div>
+            <div class="pub-body">
+              <span class="pub-title">Semantic-Gravity Iterative Closest Point and AI-assisted navigation for Robot-Ready Construction Digital Twins</span>
+              R. Akhavian, <strong>M. Amani</strong>, J. Mootz, B. Beheshti, and R. Ashe<br>
+              <span class="pub-venue"><em>Automation in Construction</em>, 190, 107134, 2026</span>
+              <div class="pub-links"><a href="https://doi.org/10.1016/j.autcon.2026.107134">Paper</a></div>
+            </div>
+          </article>
+          <article class="pub">
+            <a class="pub-thumb" href="https://arxiv.org/abs/2511.11967" tabindex="-1" aria-hidden="true"><img src="images/pubs/bootstrapped-llm.jpg" alt="" loading="lazy"></a>
+            <div class="pub-body">
+              <span class="pub-title">Bootstrapped LLM Semantics for Context-Aware Path Planning</span>
+              <strong>M. Amani</strong>, B. Beheshti, and R. Akhavian<br>
+              <span class="pub-venue"><em>ASCE International Conference on Computing in Civil Engineering (i3CE)</em>, 2026</span>
+              <div class="pub-links"><a href="https://arxiv.org/abs/2511.11967">arXiv</a></div>
+            </div>
+          </article>
+        <p class="pub-year">2025</p>
+          <article class="pub">
+            <a class="pub-thumb" href="https://doi.org/10.1007/s41693-025-00161-1" tabindex="-1" aria-hidden="true"><img src="images/pubs/bim-mha.jpg" alt="" loading="lazy"></a>
+            <div class="pub-body">
+              <span class="pub-title">Safe and Trustworthy Robot Pathfinding with BIM, MHA*, and NLP</span>
+              <strong>M. Amani</strong> and R. Akhavian<br>
+              <span class="pub-venue"><em>Construction Robotics</em>, 9, article 18, 2025</span>
+              <div class="pub-links"><a href="https://doi.org/10.1007/s41693-025-00161-1">Paper</a> <a href="https://arxiv.org/abs/2411.15371">arXiv</a></div>
+            </div>
+          </article>
+          <article class="pub">
+            <div class="pub-thumb text-tile" aria-hidden="true">Computing in Civil Engineering<br>2025</div>
+            <div class="pub-body">
+              <span class="pub-title">A Customized Quadruped Control and Sensor Integration Framework with a Construction Worker Activity Recognition Module</span>
+              R. Ashe, <strong>M. Amani</strong>, C. Sommerfield, and R. Akhavian<br>
+              <span class="pub-venue"><em>Computing in Civil Engineering 2025</em>, 708–712</span>
+              <div class="pub-links"><a href="https://doi.org/10.1061/9780784486443.077">Paper</a> <a href="https://github.com/mamani828/GO1_GPT_UNITY">Code</a></div>
+            </div>
+          </article>
+        <p class="pub-year">2024</p>
+          <article class="pub">
+            <a class="pub-thumb" href="https://doi.org/10.1016/j.autcon.2024.105741" tabindex="-1" aria-hidden="true"><img src="images/pubs/ergonomic-rl.jpg" alt="" loading="lazy"></a>
+            <div class="pub-body">
+              <span class="pub-title">Intelligent ergonomic optimization in bimanual worker-robot interaction: A Reinforcement Learning approach</span>
+              <strong>M. Amani</strong> and R. Akhavian<br>
+              <span class="pub-venue"><em>Automation in Construction</em>, 168, 105741, 2024</span>
+              <div class="pub-links"><a href="https://doi.org/10.1016/j.autcon.2024.105741">Paper</a> <a href="https://arxiv.org/abs/2403.12149">arXiv</a> <a href="https://github.com/mamani828/RL-REBA">Code</a></div>
+            </div>
+          </article>
+          <article class="pub">
+            <div class="pub-thumb text-tile" aria-hidden="true">Int. Journal of Bifurcation and Chaos<br>2024</div>
+            <div class="pub-body">
+              <span class="pub-title">Disorder-Induced Dynamics in Complex Networks</span>
+              A. Palacios, V. In, and <strong>M. Amani</strong><br>
+              <span class="pub-venue"><em>International Journal of Bifurcation and Chaos</em>, 34(5), 2430010, 2024</span>
+              <div class="pub-links"><a href="https://doi.org/10.1142/S0218127424300106">Paper</a></div>
+            </div>
+          </article>
+          <article class="pub">
+            <a class="pub-thumb" href="https://doi.org/10.1061/9780784486115.072" tabindex="-1" aria-hidden="true"><img src="images/pubs/4d-bim.jpg" alt="" loading="lazy"></a>
+            <div class="pub-body">
+              <span class="pub-title">Adaptive Robot Perception in Construction Environments Using 4D BIM</span>
+              <strong>M. Amani</strong> and R. Akhavian<br>
+              <span class="pub-venue"><em>Computing in Civil Engineering 2024</em>, 679–687</span>
+              <div class="pub-links"><a href="https://doi.org/10.1061/9780784486115.072">Paper</a> <a href="https://arxiv.org/abs/2409.13837">arXiv</a></div>
+            </div>
+          </article>
+      </section>
+      <section id="honors" aria-labelledby="honors-heading">
+        <h2 id="honors-heading">Honors &amp; Awards</h2>
+        <ul class="honors-list">
+          <li>SDSU University Graduate Fellowship (UGF) <span class="year">(2026–2028)</span></li>
+          <li><a href="https://www.arcsfoundation.org/">ARCS Foundation</a> Scholar (Achievement Rewards for College Scientists) <span class="year">(2026–2027)</span></li>
+          <li>NSF S-STEM ASSICS Scholarship, SDSU <span class="year">(2023–2025)</span></li>
+          <li>San Diego Zoo Wildlife Alliance &amp; San Diego Foundation Fellowship <span class="year">(2024)</span></li>
+          <li>Runner-up Poster Award, SDSU Graduate Research Symposium <span class="year">(2025)</span></li>
+          <li>Best Poster Award, SDSU Graduate Research Symposium <span class="year">(2024)</span></li>
+          <li>Provost Honors, UC San Diego <span class="year">(2018, 2020)</span></li>
         </ul>
       </section>
     </div>
